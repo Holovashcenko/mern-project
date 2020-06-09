@@ -8,7 +8,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: ''
+    database: 'mern'
 });
 module.exports = new Sequelize(
     db.user,
@@ -20,6 +20,8 @@ module.exports = new Sequelize(
     }
 );
 const app = express();
+
+app.use(express.json({extended: true}));
 
 app.use('/api/auth', AUTH_ROUTE);
 
